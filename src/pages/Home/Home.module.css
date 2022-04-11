@@ -1,0 +1,86 @@
+.mainContainer{
+    text-align: center;
+}
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    background-color: #fff1f2;
+}
+.logoutBtn{
+    font-size: 1.5rem;
+}
+.logout-btn:hover{
+    color: #000;
+}
+
+.card {
+    width: 11rem;
+    height: 10rem;
+  
+}
+
+.img {
+    cursor: pointer;
+}
+
+.img img {
+    min-width: fit-content;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+}
+
+.headerContent {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+.homeImage {
+    width: 40rem;
+    height: 30rem;
+}
+
+.categoryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.brandContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+}
+
+.brandContainer .card {
+    height: 7rem;
+}
+
+/* meadia Query for responsiveness */
+@media (max-width:972px) {
+    
+    .headerContainer {
+        flex-wrap: wrap;
+        margin: 4rem;
+        padding: 0 10.5rem;
+        background-color: #fff1f2;
+    }
+    .homeImage{
+        width: 25rem;
+        height: 20rem;
+    }
+    .nav{
+        max-width: fit-content;
+    }
+    
+.btn{
+    width: 15rem;
+}
+}
+
