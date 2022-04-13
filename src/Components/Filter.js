@@ -5,7 +5,6 @@ import { StateContext } from '../Context/Context'
 const Filter = () => {
     const { state, dispatch } = useContext(StateContext)
 
-console.log(state);
 
   return (
     <aside>
