@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,0,300;0,400;0,700;0,900;1,300&display=swap');
+
+:root {
+    font-family: 'Roboto', sans-serif;
+}
+.btn{
+    cursor: pointer;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+#togglePassword{
+position: absolute;
+margin: 1.2rem 0 0 13.5rem; 
+cursor: pointer;
+}
+.logout-btn{
+    font-size: 1.5rem;
+}
+.logout-btn:hover{
+    color: #000;
+}
