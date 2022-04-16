@@ -11,7 +11,8 @@ const Context = ({ children }) => {
     sortBy: null,
     rating: 0,
     sortByFilters: {
-      sortByCategory: []
+      sortByCategory: [],
+      sortBySubCategory: []
     },
     cart: []
   })
