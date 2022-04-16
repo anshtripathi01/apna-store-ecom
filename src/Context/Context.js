@@ -13,7 +13,7 @@ const Context = ({ children }) => {
     sortByFilters: {
       sortByCategory: []
     },
-    cart:[]
+    cart: []
   })
 
   return (

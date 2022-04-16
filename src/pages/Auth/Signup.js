@@ -69,7 +69,7 @@ const Signup = () => {
                     </span>
                     <span className="form-btn">
                         <button className="btn btn-solid-primary" onClick={signupHandler}>Sign Up</button>
-                        <button className="btn btn-outline-primary" onClick={()=>navigate('/')} >Cancel</button>
+                        <button className="btn btn-outline-primary" onClick={() => navigate('/')} >Cancel</button>
                     </span>
                 </form>
 

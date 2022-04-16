@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import {  StateContext } from '../../Context/Context';
+import { StateContext } from '../../Context/Context';
 import styles from '../Products/Products.module.css'
 import { getFilteredData, getRatingSortedData, getSortedData } from '../../FilterFunction';
 import ProductCard from '../../Components/ProductCard';
@@ -27,37 +27,38 @@ const Products = () => {
     };
     fetchData();
   })
-    useEffect(() => {
-      async function fetchData() {
-        try {
-          const res = await fetch('/api/products', { method: "GET" })
-          const data = await res.json()
-          dispatch({ type: 'SET_PRODUCTS', payload: data.products })
-        } catch (error) {
-          console.log(error)
-        }
-      };
-      
-      fetchData();
-    },[dispatch])
-    
-    const sortedData = getSortedData(state.products, state.sortBy);
-    const ratingSortedData=getRatingSortedData(sortedData,state.rating)
-    const filteredData = getFilteredData(ratingSortedData,state)
-return (
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('/api/products', { method: "GET" })
+        const data = await res.json()
+        dispatch({ type: 'SET_PRODUCTS', payload: data.products })
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+    fetchData();
+  }, [dispatch])
+
+  const sortedData = getSortedData(state.products, state.sortBy);
+  const ratingSortedData = getRatingSortedData(sortedData, state.rating)
+  const filteredData = getFilteredData(ratingSortedData, state)
+  return (
     <main className={styles.mainContainer}>
-   <Filter />
-<div className={styles.productsContainer}>
+      <Filter />
+      <div className={styles.productsContainer}>
 
-    {filteredData.map((product=>{
-         return(
-    <ProductCard product={product} />
-    
-  )}))}
-  </div>
+        {filteredData.map((product => {
+          return (
+            <ProductCard product={product} />
 
-</main>
-)
+          )
+        }))}
+      </div>
+
+    </main>
+  )
 }
 
 

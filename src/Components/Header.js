@@ -10,9 +10,9 @@ const Header = () => {
     const { state } = useContext(StateContext)
 
     const logoutHandler = () => {
-            localStorage.clear()
-            setToken(undefined);
-            navigate('/')
+        localStorage.clear()
+        setToken(undefined);
+        navigate('/')
     }
     return (
         <header class="header">

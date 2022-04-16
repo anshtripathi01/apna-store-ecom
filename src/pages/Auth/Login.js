@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
-import { useState ,useContext} from 'react';
+import { useState, useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -53,7 +53,7 @@ const Login = () => {
                     </span>
                     <span className="form-btn">
                         <button className="btn btn-solid-primary" onClick={loginHandler}>Login</button>
-                        <button className="btn btn-outline-primary" onClick={()=>navigate('/signup')} >Signup </button>
+                        <button className="btn btn-outline-primary" onClick={() => navigate('/signup')} >Signup </button>
                     </span>
                 </form>
             </div>

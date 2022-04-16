@@ -1,20 +1,20 @@
 import axios from 'axios'
 export const addToCart = (item, encodedToken) => {
-  
-   try{
-    fetch("/api/user/cart", {
-        method: "POST",
-        body: JSON.stringify({ product: item }),
-        headers: {
-            authorization: encodedToken,
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-        .then(res => res.json())
-        .then(data => console.log(data))
-   }catch(error){
-       console.log(error)
-   }
+
+    try {
+        fetch("/api/user/cart", {
+            method: "POST",
+            body: JSON.stringify({ product: item }),
+            headers: {
+                authorization: encodedToken,
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const updateProductQty = async (id, encodedToken, dispatch, actionType) => {
@@ -40,21 +40,21 @@ export const updateProductQty = async (id, encodedToken, dispatch, actionType) =
     }
 }
 
-export const removeFromCart=async(id,encodedToken,dispatch)=> {
+export const removeFromCart = async (id, encodedToken, dispatch) => {
     try {
-      const {
-        data: { cart },
-      } = await axios.delete(`api/user/cart/${id}`, {
-        headers: {
-          authorization: encodedToken,
-        },
-      });
-      dispatch({ type: 'SET_CART', payload: cart })
+        const {
+            data: { cart },
+        } = await axios.delete(`api/user/cart/${id}`, {
+            headers: {
+                authorization: encodedToken,
+            },
+        });
+        dispatch({ type: 'SET_CART', payload: cart })
 
     } catch (error) {
         console.log("Error in cart", error);
     }
-  }
+}
 
 
 export const findPriceOfAllItems = (cart) => {

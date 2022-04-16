@@ -13,14 +13,14 @@ const Cart = () => {
   const totalDiscount = findTotalDiscount(state.cart)
   const finalCartPrice = calculateFinalCartPrice(totalPrice, totalDiscount, 40)
 
-  
+
 
   return (
     <>
       <h3>My Cart({state.cart.length})</h3>
-     
+
       <div class="cart-container">
-      {state.cart.length === 0 && <h2>Empty Cart</h2>}
+        {state.cart.length === 0 && <h2>Empty Cart</h2>}
         {state.cart.map(product => {
           return (
             <div class="horizontal-card-container">

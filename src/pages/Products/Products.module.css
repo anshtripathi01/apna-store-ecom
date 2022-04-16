@@ -1,21 +1,23 @@
-
-
 .mainContainer {
     display: flex;
     justify-content: center;
     flex-direction: row;
 
 }
-.logoutBtn{
+
+.logoutBtn {
     font-size: 1.5rem;
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
     color: #000;
 }
-.nav-link{
+
+.nav-link {
     font-size: 1.2rem;
 }
-.filter{
+
+.filter {
     font-size: 1.1rem;
     margin: 0 2rem 0 0;
 }
@@ -25,12 +27,14 @@ aside {
     margin-left: 1rem;
     width: 15rem;
 }
-aside .btn{
-   border-top:none;
-   border-left: none;
-   border-right: none;
-   background-color: #fff;
+
+aside .btn {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #fff;
 }
+
 .productsContainer {
     width: 100%;
     display: flex;
@@ -38,13 +42,15 @@ aside .btn{
     align-items: center;
     flex-wrap: wrap;
 }
-.priceContainer{
+
+.priceContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-  
+
 }
+
 .newBadges {
     width: 2.2rem;
     height: 1.2rem;
@@ -53,51 +59,59 @@ aside .btn{
     position: absolute;
     padding: 0;
 }
-.priceContainer i{
-    color:#FF9900;
+
+.priceContainer i {
+    color: #FF9900;
 }
+
 .price {
     font-weight: bold;
     margin: 0.2rem 0 0 0.2rem;
 }
-.discountPer{
+
+.discountPer {
     margin: 5px;
     color: green;
-  }
-  .discountPrice {
+}
+
+.discountPrice {
     font-size: 0.9rem;
     text-decoration: line-through;
     margin: 0.2rem 0 0 0;
-  }
+}
+
 .card {
     width: 13.2rem;
     height: 18.8rem;
     margin: 1rem;
     position: relative;
-  
+
 }
-.productsContainer a{
+
+.productsContainer a {
     color: #000;
 }
 
-.btn{
+.btn {
     cursor: pointer;
 }
 
 
-.likeBtn:hover{
+.likeBtn:hover {
     color: #ff0000;
 }
+
 .productTitle {
     margin: 0.1rem 0 0 1.2rem;
 }
-.likeBtn{
+
+.likeBtn {
     width: fit-content;
     box-shadow: 0px 0px 3px 1px;
     border-radius: 50%;
     color: gray;
-    top:0.2rem;
-    left:1rem;
+    top: 0.2rem;
+    left: 1rem;
     font-size: 1.3rem;
     padding: 0.3rem 0.2rem 0.1rem;
 }
