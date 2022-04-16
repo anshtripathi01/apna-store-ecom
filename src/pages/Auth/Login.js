@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
+import { useState ,useContext} from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { setToken, setUser } = useContext(AuthContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [statusCode, setStatusCode] = useState();
@@ -19,14 +21,16 @@ const Login = () => {
 
             if (status === 200) {
                 localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
+                setToken(encodedToken);
                 localStorage.setItem("user", JSON.stringify({ user: foundUser }));
-                setTimeout(() => navigate("/products"), 3000)
+                setUser(foundUser);
+                setTimeout(() => navigate("/products"), 1000)
             }
             setStatusCode(status)
         }
 
         catch (error) {
-            alert("Your details are not found Please register yourself!!!")
+            alert("Your details are not found Please Signup!!!")
             navigate('/signup')
         }
     };
@@ -49,7 +53,7 @@ const Login = () => {
                     </span>
                     <span className="form-btn">
                         <button className="btn btn-solid-primary" onClick={loginHandler}>Login</button>
-                        <button className="btn btn-outline-primary" href="/Components/Auth/signin.html">Signup </button>
+                        <button className="btn btn-outline-primary" onClick={()=>navigate('/signup')} >Signup </button>
                     </span>
                 </form>
             </div>

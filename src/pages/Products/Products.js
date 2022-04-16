@@ -6,17 +6,38 @@ import ProductCard from '../../Components/ProductCard';
 import Filter from '../../Components/Filter';
 
 const Products = () => {
+  const encodedToken = localStorage.getItem('token')
   const { state, dispatch } = useContext(StateContext)
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('/api/user/cart', {
+          method: "GET", headers: {
+            "authorization": encodedToken,
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+        const data = await res.json()
+
+        dispatch({ type: 'SET_CART', payload: data.cart })
+
+      } catch (e) {
+        console.log(e)
+      }
+    };
+    fetchData();
+  })
     useEffect(() => {
       async function fetchData() {
         try {
           const res = await fetch('/api/products', { method: "GET" })
           const data = await res.json()
           dispatch({ type: 'SET_PRODUCTS', payload: data.products })
-        } catch (e) {
-          console.log(e)
+        } catch (error) {
+          console.log(error)
         }
       };
+      
       fetchData();
     },[dispatch])
     
@@ -40,4 +61,4 @@ return (
 }
 
 
-export default Products;
+export default Products

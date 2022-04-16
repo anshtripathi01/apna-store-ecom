@@ -6,6 +6,7 @@ import Products from "./pages/Products/Products";
 import Home from "./pages/Home/Home";
 import Signup from "./pages/Auth/Signup";
 import Login from "./pages/Auth/Login";
+import Cart from "./pages/Cart/Cart";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/products" element={<Products />}/>
         <Route exact path="/signup" element={<Signup />}/>
         <Route exact path="/login" element={<Login />}/>
+        <Route exact path="/cart" element={<Cart />}/>
         <Route path="/mock" element={<Mockman/>} />
      </Routes>
     </div>
