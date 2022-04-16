@@ -1,6 +1,7 @@
-.mainContainer{
+.mainContainer {
     text-align: center;
 }
+
 .headerContainer {
     display: flex;
     justify-content: center;
@@ -8,17 +9,19 @@
     margin: 3rem;
     background-color: #fff1f2;
 }
-.logoutBtn{
+
+.logoutBtn {
     font-size: 1.5rem;
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
     color: #000;
 }
 
 .card {
     width: 11rem;
     height: 10rem;
-  
+
 }
 
 .img {
@@ -38,9 +41,11 @@
     flex-direction: column;
     line-height: 1.7;
 }
-.nav-link{
+
+.nav-link {
     font-size: 1.2rem;
 }
+
 .homeImage {
     width: 40rem;
     height: 30rem;
@@ -64,23 +69,24 @@
 
 /* meadia Query for responsiveness */
 @media (max-width:972px) {
-    
+
     .headerContainer {
         flex-wrap: wrap;
         margin: 4rem;
         padding: 0 10.5rem;
         background-color: #fff1f2;
     }
-    .homeImage{
+
+    .homeImage {
         width: 25rem;
         height: 20rem;
     }
-    .nav{
+
+    .nav {
         max-width: fit-content;
     }
-    
-.btn{
-    width: 15rem;
-}
-}
 
+    .btn {
+        width: 15rem;
+    }
+}

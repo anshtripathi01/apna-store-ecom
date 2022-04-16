@@ -12,7 +12,8 @@ const Context = ({ children }) => {
     rating: 0,
     sortByFilters: {
       sortByCategory: []
-    }
+    },
+    cart: []
   })
 
   return (

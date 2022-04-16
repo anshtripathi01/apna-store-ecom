@@ -1,11 +1,13 @@
 import React from 'react'
 import axios from 'axios';
 import './Signup.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
     const navigate = useNavigate();
+    const { setToken, setUser } = useContext(AuthContext)
     const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -24,9 +26,11 @@ const Signup = () => {
             setStatusCode(status)
             if (status === 201) {
                 localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
+                setToken(encodedToken);
                 localStorage.setItem("user", JSON.stringify({ user: createdUser }));
+                setUser(createdUser);
                 setTimeout(() =>
-                    navigate("/login"), 3000
+                    navigate("/products"), 1000
                 )
 
             }
@@ -65,7 +69,7 @@ const Signup = () => {
                     </span>
                     <span className="form-btn">
                         <button className="btn btn-solid-primary" onClick={signupHandler}>Sign Up</button>
-                        <button className="btn btn-outline-primary" >Cancel</button>
+                        <button className="btn btn-outline-primary" onClick={() => navigate('/')} >Cancel</button>
                     </span>
                 </form>
 
