@@ -12,6 +12,7 @@ const Header = () => {
     const logoutHandler = () => {
         localStorage.clear()
         setToken(undefined);
+        navigate(0)
         navigate('/')
     }
     return (
@@ -35,8 +36,8 @@ const Header = () => {
                         <Link to={'login'} ><li class="nav-link"><i class="nav-icon fa-solid fa-cart-shopping" ></i></li></Link>
                         <Link to={'login'} ><li class="nav-link"><i class="nav-icon fa-solid fa-heart"></i></li></Link></> :
                         <>
-                            <Link to={'cart'} ><li class="nav-link"><i class="nav-icon fa-solid fa-cart-shopping" ></i> <span class="badges cart-badges">{state.cart.length}</span></li></Link>
-                            <Link to={'wishlist'} ><li class="nav-link"><i class="nav-icon fa-solid fa-heart"></i><span class="badges cart-badges">0</span></li></Link>
+                            <Link to={'cart'} ><li class="nav-link"><i class="nav-icon fa-solid fa-cart-shopping" ></i> <span class="badges cart-badges">{state.cart?.length}</span></li></Link>
+                            <Link to={'wishlist'} ><li class="nav-link"><i class="nav-icon fa-solid fa-heart"></i><span class="badges cart-badges">{state.wishlist.length}</span></li></Link>
                             <Link to={'/'}><li class="nav-link"> <i class={`${styles.logoutBtn} fa-solid fa-right-from-bracket`} onClick={logoutHandler}> </i></li></Link> </>}
                 </ul>
             </nav>

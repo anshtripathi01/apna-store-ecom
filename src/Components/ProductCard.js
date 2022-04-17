@@ -5,17 +5,16 @@ import styles from '../pages/Products/Products.module.css';
 import { StateContext } from '../Context/Context';
 import { addToCart, updateProductQty } from '../CartUtilityFunction';
 import { AuthContext } from '../Context/AuthProvider';
+import { handleAddToWishlist, removeFromWishlist } from '../WishlistUtilityFunction';
 
 const ProductCard = ({ product }) => {
   const { state, dispatch } = useContext(StateContext)
-  const { token, setToken } = useContext(AuthContext);
+  const { token , setToken} = useContext(AuthContext);
   window.onbeforeunload = function (e) {
     localStorage.clear()
     setToken(undefined);
 
   };
-
-
   const navigate = useNavigate();
   const [cartButtonText, setCartButtonText] = useState("Add To Cart")
   const handleAddTOCart = () => {
@@ -35,12 +34,13 @@ const ProductCard = ({ product }) => {
             addToCart(product, token, dispatch)
             setCartButtonText('Go To Cart')
           } else {
-            setCartButtonText("Go To Cart")
+            
             const isItemPresentInWishList = state.wishlist.find(itemInWishlist => itemInWishlist._id === product._id)
             if (isItemPresentInWishList !== undefined) {
               updateProductQty(product._id, token, dispatch, "increment")
 
             }
+            setCartButtonText("Go To Cart")
           }
         }
       } else {
@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
           <img src={product.image}
             alt="product_img" />
           <h4 className={styles.productTitle}>{product.productName}</h4>
-          <a href="/Components/Wishlist/wishlist.html"> <i className={`like-btn ${styles.likeBtn} fa-solid fa-heart`}></i></a>
+          {state.wishlist.includes(product) ? <></>:<><i className={`like-btn ${styles.likeBtn} fa-solid fa-heart`} onClick={(e) => handleAddToWishlist(state.wishlist, product, token, dispatch, navigate)}></i></>}
 
           <div className={styles.priceContainer}><p className={styles.price}>₹{product.price}  </p>
 
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
             <p className={styles.discountPer}>-{product.discountPrice}% OFF</p>
             <span><i class="fa fa-star" aria-hidden="true"></i>{product.rating}</span>
           </div>
-          <button className={`btn btn-solid-primary ${styles.btn}`} >Buy Now</button>
+          {state.wishlist.includes(product) ? <>  <button className={`btn btn-solid-primary ${styles.btn}`} onClick={() => removeFromWishlist(product._id, token, dispatch)} >Remove</button> </>:<button className={`btn btn-solid-primary ${styles.btn}`} >Buy Now</button>}
           <button className={`btn btn-outline-primary ${styles.btn}`} onClick={handleAddTOCart} >{cartButtonText}</button>
 
         </div>

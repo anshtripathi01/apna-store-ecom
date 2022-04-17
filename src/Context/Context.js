@@ -14,7 +14,8 @@ const Context = ({ children }) => {
       sortByCategory: [],
       sortBySubCategory: []
     },
-    cart: []
+    cart: [],
+    wishlist:[]
   })
 
   return (

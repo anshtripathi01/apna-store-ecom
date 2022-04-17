@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Signup from "./pages/Auth/Signup";
 import Login from "./pages/Auth/Login";
 import Cart from "./pages/Cart/Cart";
+import Wishlist from "./pages/Wishlist/Wishlist";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/signup" element={<Signup />}/>
         <Route exact path="/login" element={<Login />}/>
         <Route exact path="/cart" element={<Cart />}/>
+        <Route exact path="/wishlist" element={<Wishlist />}/>
         <Route path="/mock" element={<Mockman/>} />
      </Routes>
     </div>
