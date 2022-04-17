@@ -4,7 +4,7 @@ import { StateContext } from '../../Context/Context';
 import { useContext } from 'react';
 import { updateProductQty, calculateFinalCartPrice, findPriceOfAllItems, findTotalDiscount, removeFromCart } from '../../CartUtilityFunction';
 import { AuthContext } from '../../Context/AuthProvider';
-import { handleAddToWishlist } from '../../WishlistUtilityFunction';
+import { handleMoveToWishlist } from '../../WishlistUtilityFunction';
 
 
 
@@ -45,7 +45,7 @@ const Cart = () => {
                 </div>
 
                 <button class="btn btn-solid-primary" onClick={(e) => removeFromCart(product._id, encodedToken, dispatch)}>Remove</button>
-                <button class="btn btn-outline-primary" onClick={(e) => handleAddToWishlist(state.wishlist, product, token, dispatch, null)}>Move to Wishlist</button>
+                <button class="btn btn-outline-primary" onClick={(e) => handleMoveToWishlist(state.wishlist, product, token, dispatch, null)}>Move to Wishlist</button>
               </div>
 
             </div>

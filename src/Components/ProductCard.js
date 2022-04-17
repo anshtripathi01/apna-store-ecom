@@ -1,9 +1,9 @@
 
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import styles from '../pages/Products/Products.module.css';
 import { StateContext } from '../Context/Context';
-import { addToCart, updateProductQty } from '../CartUtilityFunction';
+import { addToCart} from '../CartUtilityFunction';
 import { AuthContext } from '../Context/AuthProvider';
 import { handleAddToWishlist, removeFromWishlist } from '../WishlistUtilityFunction';
 
@@ -15,38 +15,17 @@ const ProductCard = ({ product }) => {
     setToken(undefined);
 
   };
+
   const navigate = useNavigate();
-  const [cartButtonText, setCartButtonText] = useState("Add To Cart")
   const handleAddTOCart = () => {
 
     if (token === undefined) {
       navigate('/login')
     }
-
-
-    else {
-      const isItemPresent = state.cart.find(itemInCart => itemInCart._id === product._id)
-      if (cartButtonText === "Add To Cart") {
-        if (token === undefined) {
-          navigate('/login')
-        } else {
-          if (isItemPresent === undefined) {
-            addToCart(product, token, dispatch)
-            setCartButtonText('Go To Cart')
-          } else {
-            
-            const isItemPresentInWishList = state.wishlist.find(itemInWishlist => itemInWishlist._id === product._id)
-            if (isItemPresentInWishList !== undefined) {
-              updateProductQty(product._id, token, dispatch, "increment")
-
-            }
-            setCartButtonText("Go To Cart")
-          }
-        }
-      } else {
-        navigate('/cart')
-      }
+    else{
+    addToCart(product, token, dispatch)
     }
+   
   }
 
   return (
@@ -68,7 +47,7 @@ const ProductCard = ({ product }) => {
             <span><i class="fa fa-star" aria-hidden="true"></i>{product.rating}</span>
           </div>
           {state.wishlist.includes(product) ? <>  <button className={`btn btn-solid-primary ${styles.btn}`} onClick={() => removeFromWishlist(product._id, token, dispatch)} >Remove</button> </>:<button className={`btn btn-solid-primary ${styles.btn}`} >Buy Now</button>}
-          <button className={`btn btn-outline-primary ${styles.btn}`} onClick={handleAddTOCart} >{cartButtonText}</button>
+        {state.cart.find(item=>item._id===product._id)?  <button className={`btn btn-outline-primary ${styles.btn}`} onClick={()=>navigate('/cart')} >Go To Cart</button>: <button className={`btn btn-outline-primary ${styles.btn}`} onClick={handleAddTOCart}>Add To Cart</button>}
 
         </div>
       </div>

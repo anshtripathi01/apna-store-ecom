@@ -9,7 +9,7 @@ export const handleAddToWishlist = (wishlist, product, token, dispatch, navigate
     const isItemPresent = wishlist.find(itemInWishlist => itemInWishlist._id === product._id)
     if (isItemPresent === undefined) {
       addToWishlist(product, token, dispatch)
-      removeFromCart(product._id, token, dispatch)
+      
     }
   }
 
@@ -30,6 +30,14 @@ export const addToWishlist = (product, token, dispatch) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+export const handleMoveToWishlist = (wishlist, product, token, dispatch, navigate)=>{
+    const isItemPresent = wishlist.find(itemInWishlist => itemInWishlist._id === product._id)
+    if (isItemPresent === undefined) {
+      addToWishlist(product, token, dispatch)
+      removeFromCart(product._id,token, dispatch)
+    }
 }
 
 export const removeFromWishlist = async (id, token, dispatch) => {
