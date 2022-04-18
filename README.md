@@ -1,3 +1,13 @@
+# apna-store Ecommerce Application
+A Ecommerce platform where you can purchase products.
+
+ApnaStore is a free, open source Ecommerce Application where You can Buy and Sell the Products online. 
+Where You can interact with products virtually and you can place an order in minutes just with your fingers.
+
+## Click below for Demo
+
+(https://apna-store-ecom.netlify.app/)
+
 ## Installation & Run Locally
 
 Clone the project
