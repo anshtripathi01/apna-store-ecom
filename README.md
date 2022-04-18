@@ -1,4 +1,4 @@
-# apna-store Ecommerce Application
+# Apna Store Ecommerce Application
 A Ecommerce platform where you can purchase products.
 
 ApnaStore is a free, open source Ecommerce Application where You can Buy and Sell the Products online. 
