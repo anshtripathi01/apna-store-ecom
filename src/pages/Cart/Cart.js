@@ -3,10 +3,13 @@ import './Cart.css'
 import { StateContext } from '../../Context/Context';
 import { useContext } from 'react';
 import { updateProductQty, calculateFinalCartPrice, findPriceOfAllItems, findTotalDiscount, removeFromCart } from '../../CartUtilityFunction';
+import { AuthContext } from '../../Context/AuthProvider';
+import { handleMoveToWishlist } from '../../WishlistUtilityFunction';
 
 
 
 const Cart = () => {
+  const { token } = useContext(AuthContext)
   const encodedToken = localStorage.getItem('token')
   const { state, dispatch } = useContext(StateContext)
   const totalPrice = findPriceOfAllItems(state.cart)
@@ -23,7 +26,7 @@ const Cart = () => {
         {state.cart.length === 0 && <h2>Empty Cart</h2>}
         {state.cart.map(product => {
           return (
-            <div class="horizontal-card-container">
+            <div class="horizontal-card-container" key={product._id}> 
               <div class="horizontal-card">
                 <div class="img">
                   <img src={product.image}
@@ -42,7 +45,7 @@ const Cart = () => {
                 </div>
 
                 <button class="btn btn-solid-primary" onClick={(e) => removeFromCart(product._id, encodedToken, dispatch)}>Remove</button>
-                <button class="btn btn-outline-primary">Move to Wishlist</button>
+                <button class="btn btn-outline-primary" onClick={(e) => handleMoveToWishlist(state.wishlist, product, token, dispatch, null)}>Move to Wishlist</button>
               </div>
 
             </div>
@@ -51,7 +54,7 @@ const Cart = () => {
         })}
 
 
-        {state.cart.length && <div class="price-details">
+        {state.cart.length >0 && <div class="price-details">
 
           <h3>Price Details</h3>
           <hr />

@@ -69,6 +69,7 @@ hr {
 }
 .cart-badges{
     margin: -1rem 0 0 -0.5rem;
+    padding: 2px 3px 4px 4px;
 }
 
 /* meadia Query for responsiveness */

@@ -24,6 +24,7 @@ const Signup = () => {
 
             });
             setStatusCode(status)
+            try{
             if (status === 201) {
                 localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
                 setToken(encodedToken);
@@ -32,8 +33,13 @@ const Signup = () => {
                 setTimeout(() =>
                     navigate("/products"), 1000
                 )
-
+                navigate("/products")
             }
+        }
+            catch(error){
+                console.log(error);
+            }
+        
         }
 
         catch (error) {

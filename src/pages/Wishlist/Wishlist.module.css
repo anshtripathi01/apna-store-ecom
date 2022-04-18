@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+
+.wishlistContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.like-btn {
+    color: #ff0000;
+}
